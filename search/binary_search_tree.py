@@ -1,3 +1,5 @@
+from queue import SimpleQueue
+
 class BinarySearchTree:
   def __init__(self, value):
     self.value = value
@@ -22,7 +24,23 @@ class BinarySearchTree:
     self._depth_first_search(self, cb)
 
   def breadth_first_for_each(self, cb):
-    pass
+    # Create a queue.
+    breadth_queue = SimpleQueue()
+    # Add root to queue.
+    breadth_queue.put(self)
+
+    # Check that queue isn't empty.
+    while not breadth_queue.empty():
+      # Pop first node from queue.
+      curr_node = breadth_queue.get()
+      # Perform anonymous function on value of node.
+      cb(curr_node.value)
+      # Add any existing child nodes to queue from left to right.
+      if curr_node.left:
+        breadth_queue.put(curr_node.left)
+      if curr_node.right:
+        breadth_queue.put(curr_node.right)
+      
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
