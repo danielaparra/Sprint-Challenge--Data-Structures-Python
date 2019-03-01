@@ -5,14 +5,17 @@ class BinarySearchTree:
     self.right = None
   
   # Helper function to traverse bst.
-  def _depth_first_search(self, node):
-    # If node 
+  def _depth_first_search(self, node, cb):
+    # If node is None, it has no child on that side, so return.
     if not node:
       return
-
+    else:
+      cb(node.value)
+      self._depth_first_search(node.left, cb)
+      self._depth_first_search(node.right, cb)
 
   def depth_first_for_each(self, cb):
-    pass 
+    self._depth_first_search(self, cb)
 
   def breadth_first_for_each(self, cb):
     pass
