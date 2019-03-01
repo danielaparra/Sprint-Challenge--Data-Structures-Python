@@ -1,6 +1,6 @@
 import time
 
-start_time = time.time()ß
+start_time = time.time()
 
 f = open('names_1.txt', 'r')
 names_1 = f.read().split("\n")  # List containing 10000 names
