@@ -3,9 +3,16 @@ class BinarySearchTree:
     self.value = value
     self.left = None
     self.right = None
+  
+  # Helper function to traverse bst.
+  def _depth_first_search(self, node):
+    # If node 
+    if not node:
+      return
+
 
   def depth_first_for_each(self, cb):
-    pass    
+    pass 
 
   def breadth_first_for_each(self, cb):
     pass
