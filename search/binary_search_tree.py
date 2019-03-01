@@ -9,12 +9,16 @@ class BinarySearchTree:
     # If node is None, it has no child on that side, so return.
     if not node:
       return
+    # Otherwise...
     else:
+      # Perform function on node value.
       cb(node.value)
+      # Traverse the left and right children.
       self._depth_first_search(node.left, cb)
       self._depth_first_search(node.right, cb)
 
   def depth_first_for_each(self, cb):
+    # Call recursive function on root of bst.
     self._depth_first_search(self, cb)
 
   def breadth_first_for_each(self, cb):
